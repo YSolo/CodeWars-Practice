@@ -1,0 +1,19 @@
+{
+  "name": "code-wars-practice",
+  "version": "1.0.0",
+  "description": "This repository is ment to accumulate my discoveries through practice at codewars.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YSolo/CodeWars-Practice.git"
+  },
+  "author": "Yevhen Solohub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YSolo/CodeWars-Practice/issues"
+  },
+  "homepage": "https://github.com/YSolo/CodeWars-Practice#readme"
+}

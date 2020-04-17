@@ -4,7 +4,7 @@
 // pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 // pigIt('Hello world !');     // elloHay orldway !
 
-// My first solution
+// * My first solution
 
 function pigIt(str){
   const words = str.split(" ");
@@ -22,12 +22,12 @@ function pigIt(str){
 }
 
 
-// Best practice
+// * Best practice
 
 function pigIt(str){
   return str.replace(/(\w)(\w*)(\s|$)/g, "\$2\$1ay\$3")
 }
 
-// Takeaway
+// * Takeaway
 
 // Learn about regular expressions.
