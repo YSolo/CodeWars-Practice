@@ -18,25 +18,27 @@
 
 // My solution
 function validBraces(braces){
-  const bracesStatus = {
-    round: 0,
-    square: 0,
-    curly: 0,
+  const braceTypes = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}',
+  };
+  
+  const bracesLog = [];
+  
+  for (let brace of braces) {
+  
+    // opening braces are always allowed
+    if ( brace in braceTypes ) {
+      bracesLog.push(brace);
+      
+    // closing brase should always correspond to a relevant opening brace
+    } else if ( braceTypes[bracesLog.pop()] !== brace ) {
+      return false;
+    }
   }
   
-  for (let char of braces) {
-    if (char === '(') bracesStatus.round += 1;
-    if (char === '[') bracesStatus.square += 1;
-    if (char === '{') bracesStatus.curly += 1;
-    
-    if (char === ')') bracesStatus.round -= 1;
-    if (char === ']') bracesStatus.square -= 1;
-    if (char === '}') bracesStatus.curly -= 1;    
-  }
+  // all braces should be closed
+  return (bracesLog.length === 0);
   
-  
-  return Object.values(bracesStatus)
-    .reduce( (sum, value) => sum + value) === 0 ?
-    true :
-    false;
 }
