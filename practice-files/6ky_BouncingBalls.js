@@ -26,7 +26,19 @@
 
 function bouncingBall(h,  bounce,  window) {
   // Validating the input
-  if( h <= 0 || bounce <=0 || bounce >= 1 || h > window ) return -1;
+  if( h <= 0 || bounce <=0 || bounce >= 1 || h <= window ) return -1;
   
-   
+  // Default case for recursion termination
+  if( h * bounce <= window ) return 1;
+  
+  
+  return 2 + bouncingBall(h * bounce, bounce, window);
+}
+
+// Best solution
+
+function bouncingBall(h,  bounce,  window) {
+  var rebounds = -1;
+  if (bounce > 0 && bounce < 1) while (h > window) rebounds+=2, h *= bounce;
+  return rebounds;
 }
