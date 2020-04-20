@@ -10,3 +10,35 @@
 
 // My solution
 
+function rot13(message){
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');    
+
+  let encodedMessage = '';
+  
+  for (char of message) {
+    if ( !alphabet.includes(char.toUpperCase()) ) {
+      encodedMessage += char; 
+      continue;
+    };  
+    
+    const charIndex = alphabet.indexOf(char.toUpperCase());
+    const newCharIndex = (charIndex < 13) ? alphabet.length + (charIndex - 13)  : charIndex - 13;
+    const newChar = alphabet.includes(char) ?  alphabet[newCharIndex] : alphabet[newCharIndex].toLowerCase();
+    
+    encodedMessage += newChar;
+  }
+  
+  return encodedMessage;
+}
+
+// Best solution
+
+function rot13(message) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+  return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+}
+
+// Takeaways
+
+// Back to regexp
