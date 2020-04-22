@@ -30,3 +30,41 @@
 
 // My solution
 
+function score( dice ) {
+
+  let totalScore = 0;
+  
+  const uniqueScores = new Set(dice);
+  
+  uniqueScores.forEach( die => {
+    let numOfDice = dice.filter( d => d === die).length;
+    let multiplier = (die === 1) ? 100 : 10
+    
+    if (numOfDice >= 3) {
+      totalScore += die * multiplier * 10;
+      numOfDice -= 3;
+    }
+    
+    if (die === 1 || die === 5) {
+      totalScore += die * numOfDice * multiplier;
+    }
+  });
+  
+  return totalScore;
+}
+
+// Best solution
+
+function score( dice ) {
+  var dc = [0,0,0,0,0,0];
+  var tdr = [1000,200,300,400,500,600];
+  var sdr = [100,0,0,0,50,0];
+  dice.forEach(function(x){ dc[x-1]++; });
+  return dc.reduce(function(s,x,i){ 
+    return s + (x >= 3? tdr[i] : 0) + sdr[i]*(x % 3);
+  },0);
+}
+
+// Takeaways
+
+// I beleive, my solution is much more readable.
