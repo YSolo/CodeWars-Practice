@@ -17,3 +17,30 @@ string ("") or None -- see sample tests.
 
 // My solution
 
+function firstNonRepeatingLetter(s) {
+  const letters = s.toLowerCase().split('');
+ 
+  for (let i = 0; i < letters.length; i++) {
+    const letter = letters[i];
+    if(letters.indexOf(letter) === letters.lastIndexOf(letter)) {
+      return s[i];
+    }
+  }
+  
+  return '';
+}
+
+// Best practice
+
+function firstNonRepeatingLetter(s) {
+  for(var i in s) {
+    if(s.match(new RegExp(s[i],"gi")).length === 1) {
+      return s[i];
+    }
+  }
+  return '';
+}
+
+// Takeaways
+
+// not RegExp used explicitly withoug slashes!  
