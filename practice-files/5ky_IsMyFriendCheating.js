@@ -37,3 +37,23 @@ tested by way of strings.
 
 // My Solution
 
+function removeNb (n) {
+  const numbers = [];
+  
+  for (let i = 1; i <= n; i++) {
+    numbers.push(i);
+  }
+  
+  const possibleExclusions = [];
+  const sumOfNumbers = numbers.reduce( (sum, num) => sum += num);
+  
+  for (let a of numbers) {
+    for (let b of numbers) {
+      if (b === a) continue;
+
+      if ( (sumOfNumbers - a - b) === (a * b)) possibleExclusions.push([a, b]);
+    }
+  }
+    
+  return possibleExclusions;
+}
