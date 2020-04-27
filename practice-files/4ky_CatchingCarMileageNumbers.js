@@ -59,3 +59,19 @@ You should only ever output 0, 1, or 2.
 
 // MY SOLUTION
 
+function isInteresting(number, awesomePhrases) {
+  
+  const status = 0;
+
+  // function checking conditions. return true or false
+
+
+  // iterate over all number options and return status
+
+  // if true return 2
+  // if false try next two numbers
+    // if there is true return 1
+  // else return 0
+  
+  return status
+}
